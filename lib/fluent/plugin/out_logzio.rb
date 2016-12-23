@@ -12,7 +12,7 @@ module Fluent
       super
       require 'net/http/persistent'
       @uri = URI @endpoint_url
-      @http = Net::HTTP::Persistent.new 'fluent-plugin-logzio', :ENV
+      @http = Net::HTTP::Persistent.new 'fluent-plugin-logzio-ng', :ENV
       @http.headers['Content-Type'] = 'application/json'
     end
 

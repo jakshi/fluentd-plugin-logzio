@@ -3,16 +3,16 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
-  s.name        = 'fluent-plugin-logzio'
-  s.version     = '0.0.6'
+  s.name        = 'fluent-plugin-logzio-ng'
+  s.version     = '0.0.7'
   s.authors     = ['Yury Kotov', 'Roi Rav-Hon']
   s.email       = ['bairkan@gmail.com', 'roi@logz.io']
-  s.homepage    = 'https://github.com/logzio/fluent-plugin-logzio'
+  s.homepage    = 'https://github.com/logzio/fluent-plugin-logzio-ng'
   s.summary     = %q{Fluentd plugin for output to Logz.io}
   s.description = %q{Fluentd pluging (fluent.org) for output to Logz.io (logz.io)}
   s.license     = 'Apache-2.0'
 
-  s.rubyforge_project = 'fluent-plugin-logzio'
+  s.rubyforge_project = 'fluent-plugin-logzio-ng'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

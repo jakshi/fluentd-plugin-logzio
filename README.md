@@ -1,14 +1,18 @@
-[![Gem Version](https://badge.fury.io/rb/fluent-plugin-logzio.svg)](https://badge.fury.io/rb/fluent-plugin-logzio)
+[![Gem Version](https://badge.fury.io/rb/fluent-plugin-logzio-ng.svg)](https://badge.fury.io/rb/fluent-plugin-logzio-ng)
 
 Logz.io plugin for [Fluentd](http://www.fluentd.org)
 =============
-With fluent-plugin-logzio you will be able to use [Logz.io](http://logz.io) as output the logs you collect with Fluentd.
+With fluent-plugin-logzio-ng you will be able to use [Logz.io](http://logz.io) as output the logs you collect with Fluentd.
 
 ## Getting Started
 * Install [Fluentd](http://www.fluentd.org/download)
-* gem install fluent-plugin-logzio
+* `gem install fluent-plugin-logzio-ng`
 * Make sure you have an account with Logz.io.
 * Configure Fluentd as below:
+* It's recommended to set flush_interval to 2-3s.
+    * because after 5 second logz.io close TCP connection
+    * so TCP connections aren't reused - fluentd will open new one
+    * so logz.io servers react with TCP resets on a lot of new TCP connection that fluentd will open.
 
 ```
     <match your_match>
@@ -18,7 +22,7 @@ With fluent-plugin-logzio you will be able to use [Logz.io](http://logz.io) as o
       output_include_tags true
       buffer_type    file
       buffer_path    /path/to/buffer/file
-      flush_interval 10s
+      flush_interval 2s
       buffer_chunk_limit 1m   # Logz.io has bulk limit of 10M. We recommend set this to 1M, to avoid oversized bulks
     </match>
 ```

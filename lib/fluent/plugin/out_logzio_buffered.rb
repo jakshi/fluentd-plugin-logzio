@@ -20,7 +20,7 @@ module Fluent
       super
       require 'net/http/persistent'
       @uri = URI @endpoint_url
-      @http = Net::HTTP::Persistent.new 'fluent-plugin-logzio', :ENV
+      @http = Net::HTTP::Persistent.new 'fluent-plugin-logzio-ng', :ENV
       @http.headers['Content-Type'] = 'text/plain'
       @http.idle_timeout = @http_idle_timeout
       @http.socket_options << [Socket::SOL_SOCKET, Socket::SO_KEEPALIVE, 1]
